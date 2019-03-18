@@ -25,10 +25,23 @@ body {
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
 
-.container {
+ .container {
   margin: 140px auto auto auto;
   position: relative;
   width: 450px;
   text-align: center;
   background-color: #ffffff;
+  padding: 10px;
+}
+
+h2 {
+    border-bottom: 1px solid black;
+}
+
+textarea {
+    width: 100%;
+}
+
+input[type="submit"] {
+    font-size: 0.8em;
 }

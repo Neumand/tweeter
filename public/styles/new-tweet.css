@@ -1,0 +1,14 @@
+.new-tweet {
+  background-color: lightgray;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.flex-form {
+  display: flex;
+  justify-content: space-between;
+}
+
+.counter {
+  font-size: 0.8em;
+}
