@@ -3,7 +3,6 @@ nav {
   height: 80px;
   width: 100%;
   color: #e8fdff;
-  font-size: 2em;
   position: fixed;
   top: 0;
   right: 0;
@@ -15,15 +14,12 @@ nav {
 #nav-bar .header {
   float: left;
   font-size: 2em;
-  vertical-align: center;
+  line-height: 250%;
   padding-left: 10px;
-  height: 80px;
-  width: 80px;
 }
 
 #nav-bar .logo {
   float: left;
   height: 80px;
   width: 80px;
-  vertical-align: center;
 }
