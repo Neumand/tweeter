@@ -5,6 +5,24 @@ nav {
   color: #e8fdff;
   font-size: 2em;
   position: fixed;
+  top: 0;
+  right: 0;
   padding-left: 2em;
   padding-right: 2em;
+}
+
+#nav-bar .header {
+  float: left;
+  font-size: 2em;
+  vertical-align: center;
+  padding-left: 10px;
+  height: 80px;
+  width: 80px;
+}
+
+#nav-bar .logo {
+  float: left;
+  height: 80px;
+  width: 80px;
+  vertical-align: center;
 }
