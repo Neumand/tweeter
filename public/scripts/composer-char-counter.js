@@ -5,6 +5,8 @@ $(document).ready(function() {
     let counter = $(this).siblings().find('.counter').text(charRemaining);
     if (charRemaining < 0) {
       $("#tweet-counter").css('color', 'red');
+    } else {
+      $('#tweet-counter').css('color', '#244751');
     }
   });
 });
