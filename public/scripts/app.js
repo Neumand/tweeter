@@ -54,6 +54,19 @@ const data = [
   }
 ];
 
+const request = (options, callback) => {
+  $.ajax(options)
+    .done(response => {
+      callback(response);
+    })
+    .fail(err => {
+      console.log(`Error: ${err}`);
+    })
+    .always(() => {
+      console.log("Request completed!");
+    });
+};
+
 const createTweetElement = tweetData => {
   const $newTweet = $("<article>").addClass("flexbox");
 
@@ -102,7 +115,17 @@ const renderTweets = populateTweets => {
 };
 
 $(document).ready(function() {
-  renderTweets(data);
+  $("#tweet-btn").on("submit", function(event) {
+    event.preventDefault();
+    const requestOptions = {
+      method: "POST",
+      url: "/tweets/",
+      dataType: $(this).serialize()
+    };
+    request(requestOptions, function(response) {
+      renderTweets(response);
+    });
+  });
 });
 
 // var $tweet = createTweetElement(tweetData);
