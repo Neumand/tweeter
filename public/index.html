@@ -34,9 +34,10 @@
     <nav id="nav-bar">
       <img class="logo" src="/images/bird.png" />
       <span class="header">Tweeter</span>
-      <div class="toggle">
-        Compose
-      </div>
+      <span class="toggle">
+        <img class="compose" src="/images/compose.png" />
+        <p class="toggle">Compose</p>
+      </span>
     </nav>
 
     <!-- Page-specific (main) content here -->
@@ -51,6 +52,7 @@
           ></textarea>
           <div class="flex-form">
             <input id="tweet-btn"type="submit" value="Tweet" />
+            <span id="tweet-error"></span>
             <span id="tweet-counter" class="counter">140</span>
           </div>
         </form>
