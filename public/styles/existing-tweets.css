@@ -1,0 +1,51 @@
+.flexbox {
+  border: 1px solid lightgray;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 11px;
+  border-radius: 4px;
+}
+
+#username {
+  align-self: flex-start;
+  font-size: 0.7em;
+}
+
+header {
+    background-color: rgb(233, 229, 229);
+    display: flex;
+    justify-content: space-between;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 0px;
+    border-radius: 4px 4px 0px 0px;
+}
+
+section.existing-tweets {
+    margin: auto;
+    padding-top: 0px;
+}
+
+footer {
+    font-size: 0.6em;
+    align-self: flex-start;
+    width: 15%;
+}
+
+#tweet-content {
+    border-bottom: 1px solid lightgray;
+    margin-bottom: auto;
+    padding: 15px;
+    text-align: left;
+}
+
+#user {
+    margin: 0;
+}
+
+.img-user {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

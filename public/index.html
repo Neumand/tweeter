@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
     <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
-
+    <link rel="stylesheet" href="/styles/existing-tweets.css" type="text/css" />
     <!-- External JS -->
     <script type="text/javascript" src="/vendor/jquery-2.2.3.min.js"></script>
 
@@ -34,7 +34,7 @@
     <!-- Page-specific (main) content here -->
     <main class="container">
         <section class="new-tweet">
-            <h2>Compose Tweet</h2>
+            <h2 id="compose-tweet">Compose Tweet</h2>
             <form action="/tweets/" method="POST" class="clearfix">
               <textarea class="input-tweet" name="text" placeholder="What are you humming about?"></textarea>
               <div class="flex-form">
@@ -44,7 +44,19 @@
             </form>
           </section>
           <section class="existing-tweets">
-            
+            <article class="flexbox">
+              <header>
+                <div class="img-user">
+                <img src="blank" alt="Avatar">
+                <h2 id="user">Bill Fields</h2>
+                </div>
+                <h3 id="username">@MrFields</h3>
+              </header>
+              <p id="tweet-content">This is where the tweet content will go.</p>
+              <footer>
+                <p>10 days ago</p>
+              </footer>
+            </article>
           </section>
     </main>
   </body>

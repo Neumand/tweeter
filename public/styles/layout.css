@@ -34,7 +34,7 @@ body {
   padding: 10px;
 }
 
-h2 {
+#compose-tweet {
     border-bottom: 1px solid black;
 }
 
@@ -45,3 +45,5 @@ textarea {
 input[type="submit"] {
     font-size: 0.8em;
 }
+
+header {}
