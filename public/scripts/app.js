@@ -60,6 +60,7 @@ const request = (options, callback) => {
       callback(response);
     })
     .fail(err => {
+      console.error(err);
       console.log(`Error: ${err}`);
     })
     .always(() => {
@@ -107,29 +108,56 @@ const createTweetElement = tweetData => {
   return $newTweet;
 };
 
+// Loop through the tweet database and add them to the DOM.
 const renderTweets = populateTweets => {
   for (const tweet of populateTweets) {
     let renderedTweet = createTweetElement(tweet);
-    renderedTweet.appendTo("#tweets-container");
+    renderedTweet.prependTo("#tweets-container");
+  }
+};
+
+// Verifies if the tweet length is more than 140 chars or there is no content.
+const tweetValidation = () => {
+  let check = $(".input-tweet").val();
+  if (check.length === 0) {
+    alert("Please enter content.");
+    return false;
+  } else if (check.length > 140) {
+    alert("Error: tweet content over 140 characters.");
+    return false;
+  } else {
+    return true;
   }
 };
 
 $(document).ready(function() {
-  $("#tweet-btn").on("submit", function(event) {
+  const loadTweets = () => {
+    request(
+      {
+        method: "GET",
+        url: "/tweets/"
+      },
+      function(response) {
+        renderTweets(response);
+      }
+    );
+  };
+  loadTweets();
+
+  $("form").on("submit", function(event) {
     event.preventDefault();
     const requestOptions = {
       method: "POST",
       url: "/tweets/",
-      dataType: $(this).serialize()
+      data: $(this).serialize()
     };
-    request(requestOptions, function(response) {
-      renderTweets(response);
-    });
+    if (tweetValidation()) {
+      request(requestOptions, function(response) {
+        renderTweets(response);
+        loadTweets();
+        $("form").trigger("reset");
+        $("#tweet-counter").text(140);
+      });
+    }
   });
 });
-
-// var $tweet = createTweetElement(tweetData);
-
-// Test / driver code (temporary)
-// console.log($tweet); // to see what it looks like
-// $("#tweets-container").append($tweet); // to add it to the page so we can make sure it's got all the right elements, classes, etc.
