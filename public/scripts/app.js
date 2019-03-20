@@ -60,7 +60,6 @@ const request = (options, callback) => {
       callback(response);
     })
     .fail(err => {
-      console.error(err);
       console.log(`Error: ${err}`);
     })
     .always(() => {
@@ -120,12 +119,15 @@ const renderTweets = populateTweets => {
 const tweetValidation = () => {
   let check = $(".input-tweet").val();
   if (check.length === 0) {
-    alert("Please enter content.");
+    $('#tweet-error').text('Please enter content').show();
+    // alert("Please enter content.");
     return false;
   } else if (check.length > 140) {
-    alert("Error: tweet content over 140 characters.");
+    $('#tweet-error').text('Error: tweet content over 140 characters.').show();
+    // alert("Error: tweet content over 140 characters.");
     return false;
   } else {
+    $('#tweet-error').hide();
     return true;
   }
 };
@@ -160,4 +162,9 @@ $(document).ready(function() {
       });
     }
   });
+
+  $('.toggle').on("click", function () {
+    $('.new-tweet').slideToggle();
+    $('textarea').focus();
+  })
 });
