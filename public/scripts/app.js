@@ -1,4 +1,3 @@
-
 // Modular AJAX request function.
 const request = (options, callback) => {
   $.ajax(options)
@@ -56,7 +55,7 @@ const createTweetElement = tweetData => {
 
 // Clears all tweets, then loops through the tweet database and prepends them to the DOM.
 const renderTweets = populateTweets => {
-  $('#tweets-container').empty();
+  $("#tweets-container").empty();
   for (const tweet of populateTweets) {
     let renderedTweet = createTweetElement(tweet);
     renderedTweet.prependTo("#tweets-container");
@@ -81,7 +80,6 @@ const tweetValidation = () => {
 
 // Below is called only after the DOM is populated.
 $(document).ready(function() {
-
   // AJAX request to render tweets, then load tweets. Compose tweet is hidden.
   const loadTweets = () => {
     request(
@@ -95,7 +93,7 @@ $(document).ready(function() {
     );
   };
   loadTweets();
-  $('.new-tweet').hide();
+  $(".new-tweet").hide();
 
   // Event for handling POST request on form submission.
   // After this, tweets are reloaded with the form and counter being reset.
