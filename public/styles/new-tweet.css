@@ -5,6 +5,12 @@
   margin: 11px;
 }
 
+.input-tweet {
+  max-width: 100%;
+  min-width: 100%;
+  max-height: 100%;
+}
+
 .flex-form {
   display: flex;
   justify-content: space-between;
