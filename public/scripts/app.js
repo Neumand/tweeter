@@ -109,6 +109,7 @@ const createTweetElement = tweetData => {
 
 // Loop through the tweet database and add them to the DOM.
 const renderTweets = populateTweets => {
+  $('#tweets-container').empty();
   for (const tweet of populateTweets) {
     let renderedTweet = createTweetElement(tweet);
     renderedTweet.prependTo("#tweets-container");
@@ -119,15 +120,17 @@ const renderTweets = populateTweets => {
 const tweetValidation = () => {
   let check = $(".input-tweet").val();
   if (check.length === 0) {
-    $('#tweet-error').text('Please enter content').show();
-    // alert("Please enter content.");
+    $("#tweet-error")
+      .text("Please enter content")
+      .show();
     return false;
   } else if (check.length > 140) {
-    $('#tweet-error').text('Error: tweet content over 140 characters.').show();
-    // alert("Error: tweet content over 140 characters.");
+    $("#tweet-error")
+      .text("Error: tweet content over 140 characters.")
+      .show();
     return false;
   } else {
-    $('#tweet-error').hide();
+    $("#tweet-error").hide();
     return true;
   }
 };
@@ -163,8 +166,8 @@ $(document).ready(function() {
     }
   });
 
-  $('.toggle').on("click", function () {
-    $('.new-tweet').slideToggle();
-    $('textarea').focus();
-  })
+  $(".js-toggle").on("click", function() {
+    $(".new-tweet").slideToggle();
+    $("textarea").focus();
+  });
 });
