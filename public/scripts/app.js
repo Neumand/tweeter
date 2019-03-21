@@ -160,10 +160,10 @@ $(document).ready(function() {
     if (tweetValidation()) {
       request(requestOptions, function(response) {
         renderTweets(response);
-        $("form").trigger("reset");
-        $("#tweet-counter").text(140);
       });
       loadTweets();
+      $("form").trigger("reset");
+      $("#tweet-counter").text(140);
     }
   });
 
