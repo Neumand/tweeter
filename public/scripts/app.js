@@ -1,3 +1,5 @@
+
+// Modular AJAX request function.
 const request = (options, callback) => {
   $.ajax(options)
     .done(response => {
@@ -11,6 +13,7 @@ const request = (options, callback) => {
     });
 };
 
+// Creates the article element where the tweets will be populated.
 const createTweetElement = tweetData => {
   const $newTweet = $("<article>").addClass("flexbox");
 
@@ -51,7 +54,7 @@ const createTweetElement = tweetData => {
   return $newTweet;
 };
 
-// Loop through the tweet database and add them to the DOM.
+// Clears all tweets, then loops through the tweet database and prepends them to the DOM.
 const renderTweets = populateTweets => {
   $('#tweets-container').empty();
   for (const tweet of populateTweets) {
@@ -60,26 +63,26 @@ const renderTweets = populateTweets => {
   }
 };
 
-// Verifies if the tweet length is more than 140 chars or there is no content.
+// Ensures tweet length is no more than 140 chars and contains content.
 const tweetValidation = () => {
   let check = $(".input-tweet").val();
   if (check.length === 0) {
     $("#tweet-error")
       .text("Please enter content")
       .show();
-    return false;
   } else if (check.length > 140) {
     $("#tweet-error")
       .text("Error: tweet content over 140 characters.")
       .show();
-    return false;
   } else {
     $("#tweet-error").hide();
-    return true;
   }
 };
 
+// Below is called only after the DOM is populated.
 $(document).ready(function() {
+
+  // AJAX request to render tweets, then load tweets. Compose tweet is hidden.
   const loadTweets = () => {
     request(
       {
@@ -94,6 +97,8 @@ $(document).ready(function() {
   loadTweets();
   $('.new-tweet').hide();
 
+  // Event for handling POST request on form submission.
+  // After this, tweets are reloaded with the form and counter being reset.
   $("form").on("submit", function(event) {
     event.preventDefault();
     const requestOptions = {
@@ -111,6 +116,7 @@ $(document).ready(function() {
     }
   });
 
+  // Event for toggling the compose tweet box on click.
   $(".js-toggle").on("click", function() {
     $(".new-tweet").slideToggle();
     $("textarea").focus();
