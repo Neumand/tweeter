@@ -42,10 +42,24 @@ const createTweetElement = tweetData => {
     .text(tweetData["created_at"])
     .appendTo($dateCreated);
   $dateCreated.appendTo($footer);
-  $("<div>")
-    .addClass("footer-icons")
-    .appendTo($footer);
+  const $icons = $("<div>").addClass("material-icons");
+  $("<i>")
+    .addClass("tiny")
+    .addClass("material-icons")
+    .text("flag")
+    .appendTo($icons);
+  $("<i>")
+    .addClass("tiny")
+    .addClass("material-icons")
+    .text("repeat")  
+    .appendTo($icons);
+  $("<i>")
+    .addClass("tiny")
+    .addClass("material-icons")
+    .text("favorite")  
+    .appendTo($icons);
 
+  $icons.appendTo($footer);
   $header.appendTo($newTweet);
   $tweetContent.appendTo($newTweet);
   $footer.appendTo($newTweet);
