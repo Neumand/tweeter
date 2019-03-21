@@ -69,12 +69,15 @@ const tweetValidation = () => {
     $("#tweet-error")
       .text("Please enter content")
       .show();
+      return false;
   } else if (check.length > 140) {
     $("#tweet-error")
       .text("Error: tweet content over 140 characters.")
       .show();
+      return false;
   } else {
     $("#tweet-error").hide();
+    return true;
   }
 };
 
