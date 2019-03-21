@@ -11,6 +11,7 @@
 .flexbox:hover {
   opacity: 1;
   border: 1px solid darkslategrey;
+  transition: all 100ms linear;
 }
 
 .username {
@@ -35,8 +36,10 @@ section.existing-tweets {
 
 footer {
   font-size: 0.6em;
-  align-self: flex-start;
-  width: 20%;
+  display: flex;
+  justify-content: space-between;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .tweet-content {
@@ -58,4 +61,14 @@ footer {
 
 img {
   border-radius: 4px;
+}
+
+.material-icons {
+  opacity: 0;
+  cursor: pointer;
+}
+
+.flexbox:hover .material-icons {
+  opacity: 1;
+  transition: all 100ms linear;
 }
