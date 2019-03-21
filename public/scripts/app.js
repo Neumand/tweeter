@@ -148,6 +148,7 @@ $(document).ready(function() {
     );
   };
   loadTweets();
+  $('.new-tweet').hide();
 
   $("form").on("submit", function(event) {
     event.preventDefault();
@@ -159,10 +160,10 @@ $(document).ready(function() {
     if (tweetValidation()) {
       request(requestOptions, function(response) {
         renderTweets(response);
-        loadTweets();
         $("form").trigger("reset");
         $("#tweet-counter").text(140);
       });
+      loadTweets();
     }
   });
 
