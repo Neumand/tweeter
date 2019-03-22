@@ -6,7 +6,10 @@
 
     <!-- External CSS -->
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
 
     <!-- External Google font -->
     <link
@@ -28,15 +31,16 @@
       type="text/javascript"
       src="/scripts/composer-char-counter.js"
     ></script>
+    <script type="text/javascript" src="/scripts/moment.js"></script>
   </head>
 
   <body>
     <!-- Top nav bar (fixed) -->
     <nav id="nav-bar">
       <div class="header">
-      <img class="logo" src="/images/bird.png" />
-      <span>Tweeter</span>
-    </div>
+        <img class="logo" src="/images/bird.png" />
+        <span>Tweeter</span>
+      </div>
       <span class="toggle js-toggle">
         <img class="compose" src="/images/compose.png" />
         <p class="toggle">Compose</p>
@@ -54,14 +58,13 @@
             placeholder="What are you humming about?"
           ></textarea>
           <div class="flex-form">
-            <input id="tweet-btn"type="submit" value="Tweet" />
+            <input id="tweet-btn" type="submit" value="Tweet" />
             <span id="tweet-error"></span>
             <span id="tweet-counter" class="counter">140</span>
           </div>
         </form>
       </section>
-      <section class="existing-tweets" id="tweets-container">
-      </section>
+      <section class="existing-tweets" id="tweets-container"></section>
     </main>
   </body>
 </html>
