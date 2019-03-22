@@ -48,6 +48,8 @@ footer {
   margin-bottom: auto;
   padding: 15px;
   text-align: left;
+  flex-wrap: wrap-reverse;
+  word-break: break-word;
 }
 
 .user {
