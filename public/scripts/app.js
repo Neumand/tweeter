@@ -58,8 +58,8 @@ const createTweetElement = tweetData => {
     .addClass("material-icons")
     .text("favorite")  
     .appendTo($icons);
-
   $icons.appendTo($footer);
+
   $header.appendTo($newTweet);
   $tweetContent.appendTo($newTweet);
   $footer.appendTo($newTweet);
@@ -78,7 +78,7 @@ const renderTweets = populateTweets => {
 
 // Ensures tweet length is no more than 140 chars and contains content.
 const tweetValidation = () => {
-  let check = $(".input-tweet").val();
+  let check = $(".input-tweet").val().trim();
   if (check.length === 0) {
     $("#tweet-error")
       .text("Please enter content")
