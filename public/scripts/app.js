@@ -39,7 +39,7 @@ const createTweetElement = tweetData => {
   const $footer = $("<footer>");
   const $dateCreated = $("<div>").addClass("date-created");
   $("<p>")
-    .text(tweetData["created_at"])
+    .text(moment(tweetData["created_at"]).fromNow())
     .appendTo($dateCreated);
   $dateCreated.appendTo($footer);
   const $icons = $("<div>").addClass("material-icons");
